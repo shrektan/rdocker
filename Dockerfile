@@ -89,6 +89,7 @@ RUN install2.r --error \
     xml2 \
     xtable \
     xts \
+#   yaml \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 # Github version packages
