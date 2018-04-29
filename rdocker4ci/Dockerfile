@@ -2,7 +2,7 @@ FROM rocker/verse:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
-# Shrek's own working environment
+# Shrek's R docker image for CI
 
 # Install Database related apt
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,15 +19,11 @@ RUN install2.r --error \
     bookdown \
     blogdown \
     covr \
-    d3heatmap \
     DBI \
     debugme \
 #   dplyr \
-    dtplyr \
     drat \
-    dygraphs \
     DiagrammeR \
-    extrafont \
     feather \
     flexdashboard \
 #   forcats \
@@ -46,7 +42,6 @@ RUN install2.r --error \
     knitr \
     leaflet \
 #   lubridate \
-    mailR \
     openxlsx \
     pander \
     PerformanceAnalytics \
@@ -60,11 +55,8 @@ RUN install2.r --error \
     RColorBrewer \
 #   readr \
 #   readxl \
-    RJDBC \
-    RJSONIO \
     RPostgreSQL \
     RcppArmadillo \
-    RSQLServer \
     RSQLite \
     rmarkdown \
     rlang \
@@ -73,16 +65,13 @@ RUN install2.r --error \
     shinyjs \
     shinythemes \
     shinydashboard \
-    showtext \
 #   stringr \
     svglite \
     testthat \
 #   tibble \
 #   tidyverse \
-    treemap \
     usethis \
     V8 \
-    viridisLite \
     whoami \
     withr \
     writexl \
@@ -96,8 +85,4 @@ RUN install2.r --error \
 RUN R -e " \
 devtools::install_github('Rdatatable/data.table'); \
 devtools::install_github('rstudio/DT'); \
-# below packages are not on CRAN better not use
-# devtools::install_github('Ather-Energy/ggTimeSeries'); \
-# devtools::install_github('ricardo-bion/ggradar'); \
-# devtools::install_github('trestletech/shinyStore'); \
 "
