@@ -43,23 +43,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # TODO
 # In the future we should use `Rscript -e "if (!requireNamespace('pkg', quitely = TRUE)) install.packages('pkg')"
 
-RUN Rscript -e " \
-install_pkgs <- function(pkgs) { \
-  installed <- installed.packages(); \
-  pkgs <- pkgs[!pkgs %in% installed]; \
-  if (length(pkgs)) install.packages(pkgs, repos = 'https://cran.rstudio.com/');  \
-}; \
-pkgs <- c(\
-'assertthat', 'config', 'covr', 'DBI', 'debugme', 'drat', 'feather',  \
-'forecast', 'fs', 'fst', 'glue', 'infuser', 'PerformanceAnalytics', 'pkgconfig',  \
-'pool', 'progress', 'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite',  \
-'svglite', 'testthat', 'usethis', 'V8', 'whoami', 'withr', 'writexl',  \
-'xtable', 'xts', \
-'ggthemes', 'ggrepel', 'ggpubr', \
-'bookdown', 'blogdown' \
-); \
-install_pkgs(pkgs); \
-"
+COPY install_pkgs.R /usr/bin/install_pkgs.R
+
+RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 
 # Github version packages
 RUN R -e " \
