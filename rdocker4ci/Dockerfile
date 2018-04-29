@@ -14,72 +14,52 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Since rocker/verse has installed tidyverse, I will comment out the related pkgs. However, I'll keep
 # them here so that I can explicitly be aware of that I'm using them.
 
-RUN install2.r --error \
-    assertthat \
-    bookdown \
-    blogdown \
-    covr \
-    DBI \
-    debugme \
+# Tidyverse packages:
 #   dplyr \
-    drat \
-    DiagrammeR \
-    feather \
-    flexdashboard \
 #   forcats \
-    forecast \
-    fs \
-    fst \
-#   ggplot2 \
-    ggthemes \
-    ggrepel \
-    ggpubr \
-    highcharter \
-    htmlwidgets \
 #   httr \
-    infuser \
-    jsonlite \
-    knitr \
-    leaflet \
 #   lubridate \
-    openxlsx \
-    pander \
-    PerformanceAnalytics \
-    PKI \
-    pkgconfig \
-    pool \
-    progress \
 #   purrr \
-    R6 \
-    RcppArmadillo \
-    RColorBrewer \
 #   readr \
 #   readxl \
-    RPostgreSQL \
-    RcppArmadillo \
-    RSQLite \
-    rmarkdown \
-    rlang \
-    rvest \
-    shiny \
-    shinyjs \
-    shinythemes \
-    shinydashboard \
 #   stringr \
-    svglite \
-    testthat \
 #   tibble \
 #   tidyverse \
-    usethis \
-    V8 \
-    whoami \
-    withr \
-    writexl \
-    xml2 \
-    xtable \
-    xts \
-#   yaml \
-  && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+#   ggplot2 \
+#   jsonlite \
+#   xml2 \
+#   rlang \
+#   rvest \
+
+# Knitr and related should have been installed
+#    knitr \
+#    yaml \
+
+# installed in rocker/verse
+#    tinytext \
+#    devtools \
+#    rmarkdown \
+
+# TODO
+# In the future we should use `Rscript -e "if (!requireNamespace('pkg', quitely = TRUE)) install.packages('pkg')"
+
+RUN Rscript -e " \
+install_pkgs <- function(pkgs) { \
+  installed <- installed.packages(); \
+  pkgs <- pkgs[!pkgs %in% installed]; \
+  if (length(pkgs)) install.packages(pkgs, repos = 'https://cran.rstudio.com/');  \
+}; \
+pkgs <- c(\
+'assertthat', 'config', 'covr', 'DBI', 'debugme', 'drat', 'feather',  \
+'forecast', 'fs', 'fst', 'glue', 'infuser', 'PerformanceAnalytics', 'pkgconfig',  \
+'pool', 'progress', 'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite',  \
+'svglite', 'testthat', 'usethis', 'V8', 'whoami', 'withr', 'writexl',  \
+'xtable', 'xts', \
+'ggthemes', 'ggrepel', 'ggpubr', \
+'bookdown', 'blogdown' \
+); \
+install_pkgs(pkgs); \
+"
 
 # Github version packages
 RUN R -e " \
