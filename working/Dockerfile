@@ -4,20 +4,9 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's own working environment
 
-RUN install2.r --error \
-    d3heatmap \
-    dtplyr \
-    drat \
-    dygraphs \
-    extrafont \
-    mailR \
-    RJDBC \
-    RJSONIO \
-    RSQLServer \
-    showtext \
-    treemap \
-    viridisLite \
-  && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+COPY install_pkgs.R /usr/bin/install_pkgs.R
+
+RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 
 # Github version packages
 RUN R -e " \
