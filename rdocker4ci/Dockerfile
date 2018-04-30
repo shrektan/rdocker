@@ -1,8 +1,32 @@
-FROM rocker/verse:latest
+FROM rocker/r-ver:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's R docker image for CI
+
+# from rocker/tidyverse
+
+RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  libxml2-dev \
+  libcairo2-dev \
+  libsqlite3-dev \
+  libmariadbd-dev \
+  libmariadb-client-lgpl-dev \
+  libpq-dev \
+  libssh2-1-dev \
+  unixodbc-dev \
+  && R -e "\ # I don't need the bioconductor pkgs
+  && install2.r --error \
+    --deps TRUE \
+    tidyverse \
+    dplyr \
+    ggplot2 \
+    devtools \
+    formatR \
+    remotes \
+    selectr \
+    caTools
+
 
 # Install Database related apt
 RUN apt-get update && apt-get install -y --no-install-recommends \
