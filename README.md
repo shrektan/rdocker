@@ -8,7 +8,11 @@ The R docker that I use. The plan is to have three different images:
 
 ## TODO
 
-- [ ] Build the image from rocker/r-ver directly. I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
+- [ ] Build the image from rocker/r-ver directly.   
+      I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
+- [ ] Fix the pandoc installing issue.  
+      I bet I will encounter issues in the end because pandoc will not be installed if the image built from
+      rocker/r-ver instead of rocker/rstudio
 
 
 ## STATUS
