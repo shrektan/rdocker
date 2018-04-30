@@ -16,7 +16,8 @@ COPY install_pkgs.R /usr/bin/install_pkgs.R
 RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 
 # Github version packages
-RUN R -e " \
+RUN Rscript -e " \
+message('install pkgs from github...') \
 # below packages are not on CRAN better not use
 # devtools::install_github('Ather-Energy/ggTimeSeries'); \
 # devtools::install_github('ricardo-bion/ggradar'); \
