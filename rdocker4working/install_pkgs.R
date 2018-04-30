@@ -10,6 +10,7 @@ install_pkgs <- function(pkgs) {
 }
 
 pkgs <- c(
+  'bookdown', 'blogdown',
   'shiny', "shinyjs", "shinythemes", "shinydashboard",
   "highcharter", "htmlwidgets",
   "flexdashboard",

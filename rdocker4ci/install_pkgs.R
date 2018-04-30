@@ -11,7 +11,6 @@ install_pkgs <- function(pkgs) {
 
 pkgs <- c(
   'assertthat',
-  'bookdown', 'blogdown',
   'config', 'covr', 'DBI',
   'debugme', 'drat', 'feather',
   'forecast', 'fs', 'fst', 'glue', 'infuser',
