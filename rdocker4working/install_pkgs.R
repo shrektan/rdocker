@@ -13,8 +13,8 @@ pkgs <- c(
   'shiny', "shinyjs", "shinythemes", "shinydashboard",
   "highcharter", "htmlwidgets",
   "flexdashboard",
-  "RPostgreSQL", "RSQLServer", "RJDBC",
-  "openxlsx",
+  "RPostgreSQL",
+  "openxlsx", "odbc",
   "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
   "leaflet", "extrafont", "mailR",
   "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite"

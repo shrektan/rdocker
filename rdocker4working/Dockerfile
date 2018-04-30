@@ -2,6 +2,13 @@ FROM shrektan/rdocker4ci:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
+# Install Database related apt
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libaio1 \
+    unixodbc \
+    unixodbc-dev \
+    tdsodbc
+
 # Shrek's own working environment
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
