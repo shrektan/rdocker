@@ -19,4 +19,6 @@ RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 RUN R -e " \
 devtools::install_github('Rdatatable/data.table'); \
 devtools::install_github('rstudio/DT'); \
+devtools::install_github('tidyverse/lubridate'); \
+devtools::install_github('fstpackage/fst@develop'); \
 "
