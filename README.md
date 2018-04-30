@@ -8,7 +8,7 @@ The R docker that I use. The plan is to have three different images:
 
 ## TODO
 
-- [ ] Build the image from rocker/I don't think I need the Rstudio bundle in the docker image.
+- [ ] Build the image from rocker/r-ver directly. I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
 
 
 ## STATUS
