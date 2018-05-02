@@ -7,6 +7,17 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 # from rocker/tidyverse
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  file \
+  git \
+  libapparmor1 \
+  libcurl4-openssl-dev \
+  libedit2 \
+  libssl-dev \
+  lsb-release \
+  psmisc \
+  python-setuptools \
+  sudo \
+  wget \
   libxml2-dev \
   libcairo2-dev \
   libsqlite3-dev \
