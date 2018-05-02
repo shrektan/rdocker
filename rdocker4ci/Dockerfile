@@ -4,8 +4,6 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's R docker image for CI
 
-# from rocker/tidyverse
-
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   file \
   git \
@@ -18,6 +16,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   python-setuptools \
   sudo \
   wget \
+  # The above files are from rocker/rstudio
+  # TODO we need to install the pandoc
+  libaio1 \ # I remember some database package needs this
   libxml2-dev \
   libcairo2-dev \
   libsqlite3-dev \
@@ -36,11 +37,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     remotes \
     selectr \
     caTools
-
-
-# Install Database related apt
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libaio1
+  # The above codes are from rocker/verse or rocker/tidyverse
 
 # We don't use litter here is because I don't want to install packages
 # that has already been installed.
