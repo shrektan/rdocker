@@ -15,7 +15,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libpq-dev \
   libssh2-1-dev \
   unixodbc-dev \
-  && R -e "\ # I don't need the bioconductor pkgs
   && install2.r --error \
     --deps TRUE \
     tidyverse \
