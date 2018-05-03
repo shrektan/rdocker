@@ -18,7 +18,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   wget \
   # The above files are from rocker/rstudio
   # TODO we need to install the pandoc
-  libaio1 \ # I remember some database package needs this
+  # I remember some database package needs this
+  libaio1 \ 
   libxml2-dev \
   libcairo2-dev \
   libsqlite3-dev \
