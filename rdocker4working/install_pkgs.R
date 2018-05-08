@@ -12,6 +12,7 @@ install_pkgs <- function(pkgs) {
 pkgs <- c(
   'bookdown', 'blogdown',
   'shiny', "shinyjs", "shinythemes", "shinydashboard",
+  'bsplus', 'shinyWidgets',
   "highcharter", "htmlwidgets",
   "flexdashboard",
   "RPostgreSQL",
