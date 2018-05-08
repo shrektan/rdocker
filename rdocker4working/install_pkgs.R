@@ -16,7 +16,7 @@ pkgs <- c(
   "highcharter", "htmlwidgets",
   "flexdashboard",
   "RPostgreSQL", "RJDBC",
-  "openxlsx", "odbc",
+  "openxlsx", "odbc", "plotly",
   "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
   "leaflet", "extrafont", "mailR",
   "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite"
