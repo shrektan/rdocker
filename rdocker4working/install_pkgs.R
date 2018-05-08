@@ -15,7 +15,7 @@ pkgs <- c(
   'bsplus', 'shinyWidgets',
   "highcharter", "htmlwidgets",
   "flexdashboard",
-  "RPostgreSQL",
+  "RPostgreSQL", "RJDBC",
   "openxlsx", "odbc",
   "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
   "leaflet", "extrafont", "mailR",
