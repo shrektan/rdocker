@@ -16,7 +16,7 @@ pkgs <- c(
   'forecast', 'fs', 'fst', 'glue', 'infuser',
   'ggthemes', 'ggrepel', 'ggpubr',
   'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress',
-  'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite',
+  'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg",
   'svglite', 'testthat',
   'usethis',
   'V8',

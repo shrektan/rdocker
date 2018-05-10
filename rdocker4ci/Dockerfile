@@ -16,10 +16,10 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   python-setuptools \
   sudo \
   wget \
-  # The above files are from rocker/rstudio
+  # The above lines are taken from rocker/rstudio
   # TODO we need to install the pandoc
-  # I remember some database package needs this
-  libaio1 \ 
+  # I remember some database package needs libaio1
+  libaio1 \
   libxml2-dev \
   libcairo2-dev \
   libsqlite3-dev \
@@ -28,6 +28,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libpq-dev \
   libssh2-1-dev \
   unixodbc-dev \
+  # in order to install rsvg from the source
+  librsvg2-dev \
   && install2.r --error \
     --deps TRUE \
     tidyverse \
