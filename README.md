@@ -8,11 +8,10 @@ The R docker that I use. The plan is to have three different images:
 
 ## TODO
 
-- [ ] Build the image from rocker/r-ver directly.   
-      I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
-- [ ] Fix the pandoc installing issue.  
-      I bet I will encounter issues in the end because pandoc will not be installed if the image built from
-      rocker/r-ver instead of rocker/rstudio
+- [x] Build the image from rocker/r-ver directly. I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
+- [ ] Fix the pandoc installing issue.I bet I will encounter issues in the end because pandoc will not be installed if the image built from rocker/r-ver instead of rocker/rstudio
+- [ ] Add the rdocker4shiny
+- [ ] Add the mssqlserver odbc driver and ensure it works
 
 
 ## STATUS
