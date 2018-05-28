@@ -5,6 +5,9 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Install dependencies and Download and install shiny server
 RUN apt-get update && apt-get install -y \
+    # sudo and other pkgs may have been installed in the upstream
+    # but I don't know it seems like without reinstalling
+    # it will fail...
     sudo \
     gdebi-core \
     pandoc \
