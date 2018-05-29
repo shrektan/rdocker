@@ -24,6 +24,8 @@ RUN apt-get update && apt-get install -y \
     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
     rm -rf /var/lib/apt/lists/*
 
+RUN Rscript -e "devtools::install_github('shrektan/test.shiny.app')"
+
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
