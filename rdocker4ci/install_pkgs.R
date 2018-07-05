@@ -14,7 +14,7 @@ pkgs <- c(
   'config', 'covr', 'DBI',
   'debugme', 'drat', 'feather',
   'forecast', 'fs', 'fst', 'glue', 'infuser',
-  'ggthemes', 'ggrepel', 'ggpubr',
+  'ggthemes', 'ggrepel', 'ggpubr', 'huxtable',
   'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress',
   'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg", "RcppParallel", "roll",
   'svglite', 'testthat',
