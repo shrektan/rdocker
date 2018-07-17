@@ -11,7 +11,7 @@ install_pkgs <- function(pkgs) {
 
 pkgs <- c(
   'assertthat',
-  'config', 'covr', 'DBI',
+  'config', 'covr', 'corrplot', 'DBI',
   'debugme', 'drat', 'feather',
   'forecast', 'fs', 'fst', 'glue', 'infuser',
   'ggthemes', 'ggrepel', 'ggpubr', 'huxtable',
