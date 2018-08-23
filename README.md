@@ -13,6 +13,7 @@ The R docker that I use. The plan is to have three different images:
 - [x] Add the rdocker4shiny
 - [x] Add the mssqlserver odbc driver and ensure it works
 - [ ] Add the oracle db driver
+- [ ] Add more latex packages especially those relate to CTEX.
 
 ## STATUS
 
