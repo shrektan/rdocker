@@ -2,6 +2,8 @@ FROM shrektan/rdocker4ci:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
+# The following code to install tinytex is copied from rocker/verse
+# see https://github.com/rocker-org/rocker-versioned/blob/master/verse/Dockerfile
 
 ## Add LaTeX, rticles and bookdown support
 ## uses dummy texlive, see FAQ 8: https://yihui.name/tinytex/faq/
