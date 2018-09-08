@@ -66,10 +66,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unixodbc-dev \
     tdsodbc
 
+# register Free TDS driver
+
+COPY tds.driver.template /var/tds.driver.template
+RUN odbcinst -i -d -f /var/tds.driver.template
+
 # Shrek's own working environment
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
-
 RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 
 # Github version packages

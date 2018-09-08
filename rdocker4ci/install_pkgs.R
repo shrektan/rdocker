@@ -11,12 +11,12 @@ install_pkgs <- function(pkgs) {
 
 pkgs <- c(
   'assertthat',
-  'config', 'covr', 'DBI',
+  'config', 'covr', 'corrplot', 'DBI',
   'debugme', 'drat', 'feather',
   'forecast', 'fs', 'fst', 'glue', 'infuser',
-  'ggthemes', 'ggrepel', 'ggpubr',
+  'ggthemes', 'ggrepel', 'ggpubr', 'huxtable',
   'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress',
-  'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg",
+  'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg", "RcppParallel", "roll",
   'svglite', 'testthat',
   'usethis',
   'V8',
