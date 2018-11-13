@@ -20,7 +20,8 @@ pkgs <- c(
   "openxlsx", "odbc", "plotly",
   "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
   "leaflet", "extrafont", "mailR",
-  "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8"
+  "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
+  "keyring"
 )
 
 install_pkgs(pkgs)
