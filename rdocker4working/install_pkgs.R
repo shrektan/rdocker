@@ -21,7 +21,7 @@ pkgs <- c(
   "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
   "leaflet", "extrafont", "mailR",
   "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
-  "keyring"
+  "keyring", 'future', 'promises'
 )
 
 install_pkgs(pkgs)
