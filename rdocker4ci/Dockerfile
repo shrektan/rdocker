@@ -23,6 +23,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   # libudunits2-dev is required by the units package
   libgit2-dev \
   # git2r
+  libgeos-dev \
+  # rgeos
   libaio1 \
   libxml2-dev \
   libcairo2-dev \
