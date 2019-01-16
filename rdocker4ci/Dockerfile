@@ -19,6 +19,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   # The above lines are taken from rocker/rstudio
   # TODO we need to install the pandoc
   # I remember some database package needs libaio1
+  libudunits2-dev \
+  # libudunits2-dev is required by the units package
   libaio1 \
   libxml2-dev \
   libcairo2-dev \
@@ -47,7 +49,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
 
-RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
+RUN R -e "source('/usr/bin/install_pkgs.R')"
 
 # Github version packages
 RUN R -e " \
