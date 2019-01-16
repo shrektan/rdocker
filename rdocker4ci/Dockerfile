@@ -21,6 +21,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   # I remember some database package needs libaio1
   libudunits2-dev \
   # libudunits2-dev is required by the units package
+  libgit2-dev \
+  # git2r
   libaio1 \
   libxml2-dev \
   libcairo2-dev \
