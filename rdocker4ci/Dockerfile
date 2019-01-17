@@ -43,15 +43,10 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   librsvg2-dev \
   && install2.r --error \
     --deps TRUE \
-    tidyverse \
-    dplyr \
-    ggplot2 \
     devtools \
-    formatR \
     remotes \
-    selectr \
-    caTools
-  # The above codes are from rocker/verse or rocker/tidyverse
+    Rcpp
+# The above codes are from rocker/verse or rocker/tidyverse
 
 # We don't use litter here is because I don't want to install packages
 # that has already been installed.
@@ -59,11 +54,3 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 COPY install_pkgs.R /usr/bin/install_pkgs.R
 
 RUN R -e "source('/usr/bin/install_pkgs.R')"
-
-# Github version packages
-RUN R -e " \
-devtools::install_github('Rdatatable/data.table'); \
-devtools::install_github('rstudio/DT'); \
-devtools::install_github('tidyverse/lubridate'); \
-devtools::install_github('fstpackage/fst@develop'); \
-"

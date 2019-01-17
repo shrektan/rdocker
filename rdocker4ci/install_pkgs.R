@@ -11,15 +11,14 @@ install_pkgs <- function(pkgs) {
 
 pkgs <- c(
   'assertthat',
-  'config', 'covr', 'corrplot', 'DBI',
-  'debugme', 'drat', 'feather',
+  'config', 'covr', 'corrplot', 'DBI', 'data.table',
+  'debugme', 'drat', 'feather', 'formatR',
   'forecast', 'fs', 'fst', 'glue', 'infuser',
   'ggthemes', 'ggrepel', 'ggpubr', 'huxtable',
-  'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress',
+  'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress', 'Rcpp',
   'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg", "RcppParallel", "roll",
   'svglite', 'testthat',
   'usethis',
-  'V8',
   'whoami', 'withr', 'writexl',
   'xtable', 'xts',
   # pkgs that should have been installed
