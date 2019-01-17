@@ -25,6 +25,11 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libgeos-dev \
   # getPass
   libsodium-dev \
+  # sf (the below 4 libs)
+  libudunits2-dev \
+  libgdal-dev \
+  libgeos-dev \
+  libproj-dev \
   libaio1 \
   libxml2-dev \
   libcairo2-dev \
