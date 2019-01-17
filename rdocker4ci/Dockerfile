@@ -21,10 +21,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   # I remember some database package needs libaio1
   # libudunits2-dev is required by the units package
   libudunits2-dev \
-  # libgit2 needs
-  libcurl4-gnutls-dev \
-  # git2r
-  libgit2-dev \
   # rgeos
   libgeos-dev \
   # getPass
