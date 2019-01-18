@@ -1,27 +1,37 @@
-install_pkgs <- function(pkgs) {
+install_pkgs <- function(pkgs, repos = 'https://cran.rstudio.com/') {
   installed <- installed.packages()
   pkgs <- pkgs[!pkgs %in% installed]
   if (length(pkgs)) {
-    message("installing pkgs: ", paste0(pkgs, collapse = ", "))
-    install.packages(pkgs, repos = 'https://cran.rstudio.com/')
+    message('installing pkgs: ', paste0(pkgs, collapse = ', '))
+    install.packages(pkgs, repos = repos)
   } else {
-    message("no new pkgs need to be installed.")
+    message('no new pkgs need to be installed.')
   }
 }
 
-pkgs <- c(
-  'bookdown', 'blogdown',
-  "collapsibleTree", "data.tree",
-  'shiny', "shinyjs", "shinythemes", "shinydashboard",
-  'bsplus', 'shinyWidgets',
-  "highcharter", "htmlwidgets",
-  "flexdashboard",
-  "RPostgreSQL", "RJDBC",
-  "openxlsx", "odbc", "plotly",
-  "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
-  "leaflet", "extrafont", "mailR",
-  "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
-  "keyring", 'future', 'promises'
-)
+gen_code <- function(pkgs) {
+  txt <- sprintf('-e "install_pkgs(\'%s\')"', sort(pkgs))
+  txt[-1] <- paste0('      ', txt[-1])
+  txt <- paste0(txt, collapse = ' \\\n')
+  txt <- paste('RUN R', txt)
+  if (interactive()) clipr::write_clip(txt) else cat(txt)
+  invisible()
+}
 
-install_pkgs(pkgs)
+if (FALSE) {
+  pkgs <- c(
+    'bookdown', 'blogdown',
+    "collapsibleTree", "data.tree",
+    'shiny', "shinyjs", "shinythemes", "shinydashboard",
+    'bsplus', 'shinyWidgets',
+    "highcharter", "htmlwidgets",
+    "flexdashboard",
+    "RPostgreSQL", "RJDBC",
+    "openxlsx", "odbc", "plotly",
+    "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
+    "leaflet", "extrafont", "mailR",
+    "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
+    "keyring", 'future', 'promises'
+  )
+  gen_code(pkgs)
+}

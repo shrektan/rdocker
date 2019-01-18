@@ -74,3 +74,39 @@ RUN odbcinst -i -d -f /var/tds.driver.template
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
 RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
+
+RUN R -e "install_pkgs('blogdown')" \
+      -e "install_pkgs('bookdown')" \
+      -e "install_pkgs('bsplus')" \
+      -e "install_pkgs('collapsibleTree')" \
+      -e "install_pkgs('d3heatmap')" \
+      -e "install_pkgs('data.tree')" \
+      -e "install_pkgs('DiagrammeR')" \
+      -e "install_pkgs('dtplyr')" \
+      -e "install_pkgs('dygraphs')" \
+      -e "install_pkgs('extrafont')" \
+      -e "install_pkgs('flexdashboard')" \
+      -e "install_pkgs('future')" \
+      -e "install_pkgs('highcharter')" \
+      -e "install_pkgs('htmlwidgets')" \
+      -e "install_pkgs('keyring')" \
+      -e "install_pkgs('leaflet')" \
+      -e "install_pkgs('mailR')" \
+      -e "install_pkgs('odbc')" \
+      -e "install_pkgs('openxlsx')" \
+      -e "install_pkgs('pander')" \
+      -e "install_pkgs('PKI')" \
+      -e "install_pkgs('plotly')" \
+      -e "install_pkgs('promises')" \
+      -e "install_pkgs('RJDBC')" \
+      -e "install_pkgs('RJSONIO')" \
+      -e "install_pkgs('RPostgreSQL')" \
+      -e "install_pkgs('shiny')" \
+      -e "install_pkgs('shinydashboard')" \
+      -e "install_pkgs('shinyjs')" \
+      -e "install_pkgs('shinythemes')" \
+      -e "install_pkgs('shinyWidgets')" \
+      -e "install_pkgs('showtext')" \
+      -e "install_pkgs('treemap')" \
+      -e "install_pkgs('V8')" \
+      -e "install_pkgs('viridisLite')"
