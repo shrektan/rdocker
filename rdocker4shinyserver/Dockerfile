@@ -5,24 +5,26 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Install dependencies and Download and install shiny server
 RUN apt-get update && apt-get install -y \
-    # sudo and other pkgs may have been installed in the upstream
-    # but I don't know it seems like without reinstalling
-    # it will fail...
     sudo \
     gdebi-core \
     pandoc \
     pandoc-citeproc \
     libcurl4-gnutls-dev \
     libcairo2-dev \
-    libxt-dev && \
-    wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
+    libxt-dev \
+    xtail \
+    wget
+
+
+# Download and install shiny server
+RUN wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt)  && \
-    wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
+    wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb && \
-    R -e "devtools::install_github('rstudio/shiny')" && \
-    cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
-    rm -rf /var/lib/apt/lists/*
+    . /etc/environment && \
+    R -e "install.packages(c('shiny', 'rmarkdown'), repos='$MRAN')" && \
+    cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
 
 RUN R -e "devtools::install_github('shrektan/test.shiny.app')"
 

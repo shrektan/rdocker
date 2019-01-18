@@ -10,4 +10,13 @@ sudo chown -R shiny.shiny /var/log/shiny-server
 sudo Rscript -e "file.copy(test.shiny.app::app_dir(), '/srv/shiny-server', recursive = TRUE)"
 
 # RUN ShinyServer
-exec shiny-server 2>&1
+if [ "$APPLICATION_LOGS_TO_STDOUT" = "false" ];
+then
+    exec shiny-server 2>&1
+else
+    # start shiny server in detached mode
+    exec shiny-server 2>&1 &
+
+    # push the "real" application logs to stdout with xtail
+    exec xtail /var/log/shiny-server/
+fi
