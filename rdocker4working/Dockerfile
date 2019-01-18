@@ -73,9 +73,9 @@ RUN odbcinst -i -d -f /var/tds.driver.template
 # Shrek's own working environment
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
-RUN Rscript -e "source('/usr/bin/install_pkgs.R')"
 
-RUN R -e "install_pkgs('blogdown')" \
+RUN R -e "source('/usr/bin/install_pkgs.R')" \
+      -e "install_pkgs('blogdown')" \
       -e "install_pkgs('bookdown')" \
       -e "install_pkgs('bsplus')" \
       -e "install_pkgs('collapsibleTree')" \

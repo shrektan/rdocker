@@ -52,9 +52,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 # that has already been installed.
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
-RUN R -e "source('/usr/bin/install_pkgs.R')"
 
-RUN R -e "install_pkgs('assertthat')" \
+RUN R -e "source('/usr/bin/install_pkgs.R')" \
+      -e "install_pkgs('assertthat')" \
       -e "install_pkgs('config')" \
       -e "install_pkgs('corrplot')" \
       -e "install_pkgs('covr')" \

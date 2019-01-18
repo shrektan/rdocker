@@ -11,9 +11,9 @@ install_pkgs <- function(pkgs, repos = 'https://cran.rstudio.com/') {
 
 gen_code <- function(pkgs) {
   txt <- sprintf('-e "install_pkgs(\'%s\')"', sort(pkgs))
-  txt[-1] <- paste0('      ', txt[-1])
+  txt <- paste0('      ', txt)
   txt <- paste0(txt, collapse = ' \\\n')
-  txt <- paste('RUN R', txt)
+  txt <- paste0('RUN R -e "source(\'/usr/bin/install_pkgs.R\')" \\\n', txt)
   if (interactive()) clipr::write_clip(txt) else cat(txt)
   invisible()
 }
