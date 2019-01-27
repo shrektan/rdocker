@@ -110,3 +110,24 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('treemap')" \
       -e "install_pkgs('V8')" \
       -e "install_pkgs('viridisLite')"
+      
+RUN tlmgr install ctex \
+   # fullpage
+   preprint \
+   cmap \
+   colortbl \
+   # color
+   graphics \
+   booktabs \
+   pdfpages \
+   # array longtable multicol
+   tools \
+   footmisc \
+   xcolor \
+   hyperref \
+   # pdflscape
+   oberdiek \
+   # pifont
+   psnfss      
+
+RUN R -e "devtools::install_github('trestletech/plumber')"
