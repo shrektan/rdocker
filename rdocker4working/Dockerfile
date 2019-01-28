@@ -129,6 +129,20 @@ RUN tlmgr install ctex \
    # pdflscape
    oberdiek \
    # pifont
-   psnfss
+   psnfss \
+   # the following I don't know... but they are required...
+   ms \
+   fancyhdr \
+   xecjk \
+   ulem \
+   environ \
+   trimspaces \
+   zhnumber \
+   fandol \
+   symbol
 
-RUN R -e "devtools::install_github('trestletech/plumber')"
+RUN tlmgr path add
+
+RUN R -e "devtools::install_github('trestletech/plumber')" \
+      # readxl prefers dev version tibble
+      -e "devtools::install_github('tidyverse/tibble')"
