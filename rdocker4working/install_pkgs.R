@@ -31,7 +31,7 @@ if (FALSE) {
     "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
     "leaflet", "extrafont", "mailR",
     "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
-    "keyring", 'future', 'promises'
+    "keyring", 'future', 'promises', 'swagger'
   )
   gen_code(pkgs)
 }

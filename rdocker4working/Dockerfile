@@ -107,10 +107,11 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('shinythemes')" \
       -e "install_pkgs('shinyWidgets')" \
       -e "install_pkgs('showtext')" \
+      -e "install_pkgs('swagger')" \
       -e "install_pkgs('treemap')" \
       -e "install_pkgs('V8')" \
       -e "install_pkgs('viridisLite')"
-      
+
 RUN tlmgr install ctex \
    # fullpage
    preprint \
@@ -128,6 +129,6 @@ RUN tlmgr install ctex \
    # pdflscape
    oberdiek \
    # pifont
-   psnfss      
+   psnfss
 
 RUN R -e "devtools::install_github('trestletech/plumber')"
