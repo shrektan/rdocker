@@ -145,4 +145,11 @@ RUN tlmgr path add
 
 RUN R -e "devtools::install_github('trestletech/plumber')" \
       # readxl prefers dev version tibble
-      -e "devtools::install_github('tidyverse/tibble')"
+      -e "devtools::install_github('tidyverse/tibble')" \
+      # the new shiny version perfers dev httpuv due to the nginx set ups
+      -e "devtools::install_github('rstudio/httpuv') \
+      # the dev data.table fix the issue of the UTF8 encoding
+      -e "devtools::install_github('Rdatatable/data.table') \
+      # the gt needs sass but they are both not on CRAN yet
+      -e "devtools::install_github('rstudio/sass') \
+      -e "devtools::install_github('rstudio/gt')
