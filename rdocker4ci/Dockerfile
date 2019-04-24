@@ -104,6 +104,7 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('testthat')" \
       -e "install_pkgs('tibble')" \
       -e "install_pkgs('tidyverse')" \
+      -e "install_pkgs('urltools')" \
       -e "install_pkgs('usethis')" \
       -e "install_pkgs('whoami')" \
       -e "install_pkgs('withr')" \
@@ -112,4 +113,3 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('xtable')" \
       -e "install_pkgs('xts')" \
       -e "install_pkgs('yaml')"
-

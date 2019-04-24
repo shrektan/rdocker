@@ -30,7 +30,7 @@ if (FALSE) {
     'svglite', 'testthat',
     'usethis',
     'whoami', 'withr', 'writexl',
-    'xtable', 'xts',
+    'xtable', 'xts', 'urltools',
     # pkgs that should have been installed
     # pkgs belongs to tidyverse
     'dplyr', 'forcats', 'httr', 'lubridate', 'purrr', 'readr', 'readxl', 'stringr',
