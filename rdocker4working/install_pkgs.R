@@ -23,7 +23,7 @@ if (FALSE) {
     'bookdown', 'blogdown',
     "collapsibleTree", "data.tree",
     'echarts4r',
-    'shiny', "shinyjs", "shinythemes", "shinydashboard",
+    'shiny', "shinyjs", "shinythemes", "shinydashboard", 'shinycssloaders',
     'bsplus', 'shinyWidgets',
     "highcharter", "htmlwidgets",
     "flexdashboard",

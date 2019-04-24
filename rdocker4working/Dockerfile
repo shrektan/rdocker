@@ -103,6 +103,7 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('RJSONIO')" \
       -e "install_pkgs('RPostgreSQL')" \
       -e "install_pkgs('shiny')" \
+      -e "install_pkgs('shinycssloaders')" \
       -e "install_pkgs('shinydashboard')" \
       -e "install_pkgs('shinyjs')" \
       -e "install_pkgs('shinythemes')" \
