@@ -55,7 +55,8 @@ COPY install_pkgs.R /usr/bin/install_pkgs.R
 
 RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('assertthat')" \
-      -e "install_pkgs('checkmate')" \      
+      -e "install_pkgs('checkmate')" \
+      -e "install_pkgs('commonmark')" \
       -e "install_pkgs('config')" \
       -e "install_pkgs('corrplot')" \
       -e "install_pkgs('covr')" \
@@ -111,3 +112,4 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('xtable')" \
       -e "install_pkgs('xts')" \
       -e "install_pkgs('yaml')"
+

@@ -20,7 +20,7 @@ gen_code <- function(pkgs) {
 
 if (FALSE) {
   pkgs <- c(
-    'assertthat', 'checkmate',
+    'assertthat', 'checkmate', 'commonmark',
     'config', 'covr', 'corrplot', 'DBI', 'data.table',
     'debugme', 'drat', 'feather', 'formatR',
     'forecast', 'fs', 'fst', 'glue', 'infuser',
