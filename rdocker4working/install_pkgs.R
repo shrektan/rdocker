@@ -22,6 +22,7 @@ if (FALSE) {
   pkgs <- c(
     'bookdown', 'blogdown',
     "collapsibleTree", "data.tree",
+    'echarts4r',
     'shiny', "shinyjs", "shinythemes", "shinydashboard",
     'bsplus', 'shinyWidgets',
     "highcharter", "htmlwidgets",

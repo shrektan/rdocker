@@ -84,6 +84,7 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('DiagrammeR')" \
       -e "install_pkgs('dtplyr')" \
       -e "install_pkgs('dygraphs')" \
+      -e "install_pkgs('echarts4r')" \
       -e "install_pkgs('extrafont')" \
       -e "install_pkgs('flexdashboard')" \
       -e "install_pkgs('future')" \
