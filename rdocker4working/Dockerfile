@@ -154,4 +154,5 @@ RUN R -e "devtools::install_github('trestletech/plumber')" \
       -e "devtools::install_github('Rdatatable/data.table')" \
       # the gt needs sass but they are both not on CRAN yet
       -e "devtools::install_github('rstudio/sass')" \
-      -e "devtools::install_github('rstudio/gt')"
+      -e "devtools::install_github('rstudio/gt')" \
+      -e "remotes::install_github('JohnCoene/echarts4r')"
