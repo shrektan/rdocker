@@ -23,7 +23,7 @@ if (FALSE) {
     'assertthat', 'checkmate', 'commonmark',
     'config', 'covr', 'corrplot', 'DBI', 'data.table',
     'debugme', 'drat', 'feather', 'formatR',
-    'forecast', 'fs', 'fst', 'glue', 'infuser',
+    'forecast', 'fs', 'fst', 'glue',
     'ggthemes', 'ggrepel', 'ggpubr', 'huxtable',
     'PerformanceAnalytics', 'pkgconfig', 'pool', 'progress', 'Rcpp',
     'R6', 'RColorBrewer', 'RcppArmadillo', 'RSQLite', "rsvg", "RcppParallel", "roll",
