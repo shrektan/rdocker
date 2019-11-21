@@ -40,18 +40,19 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libssh2-1-dev \
   unixodbc-dev \
   # in order to install rsvg from the source
-  librsvg2-dev \
-  && install2.r --error \
-    --deps TRUE \
-    devtools \
-    remotes \
-    Rcpp
+  librsvg2-dev
+
 # The above codes are from rocker/verse or rocker/tidyverse
 
 # We don't use litter here is because I don't want to install packages
 # that has already been installed.
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
+
+RUN R -e "source('/usr/bin/install_pkgs.R')" \
+      -e "install_pkgs('remotes')" \
+      -e "install_pkgs('devtools')" \
+      -e "install_pkgs('Rcpp')"
 
 RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('assertthat')" \
