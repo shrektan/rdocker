@@ -53,10 +53,7 @@ RUN wget "https://travis-bin.yihui.name/texlive-local.deb" \
   && Rscript -e "source('https://install-github.me/yihui/tinytex'); tinytex::r_texmf()" \
   && chown -R root:staff /opt/TinyTeX \
   && chmod -R g+w /opt/TinyTeX \
-  && chmod -R g+wx /opt/TinyTeX/bin \
-  ## And some nice R packages for publishing-related stuff
-  && install2.r --error --deps TRUE \
-    bookdown rticles rmdshower DT
+  && chmod -R g+wx /opt/TinyTeX/bin
 
 # Install Database related apt
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -73,6 +70,13 @@ RUN odbcinst -i -d -f /var/tds.driver.template
 # Shrek's own working environment
 
 COPY install_pkgs.R /usr/bin/install_pkgs.R
+
+## And some nice R packages for publishing-related stuff
+RUN R -e "source('/usr/bin/install_pkgs.R')" \
+      -e "install_pkgs('bookdown')" \
+      -e "install_pkgs('rticles')" \
+      -e "install_pkgs('rmdshower')" \
+      -e "install_pkgs('DT')" 
 
 RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('blogdown')" \
