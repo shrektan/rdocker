@@ -76,7 +76,7 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('bookdown')" \
       -e "install_pkgs('rticles')" \
       -e "install_pkgs('rmdshower')" \
-      -e "install_pkgs('DT')" 
+      -e "install_pkgs('DT')"
 
 RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('blogdown')" \
@@ -103,6 +103,8 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('PKI')" \
       -e "install_pkgs('plotly')" \
       -e "install_pkgs('promises')" \
+      -e "install_pkgs('RcppRoll')" \
+      -e "install_pkgs('Rglpk')" \
       -e "install_pkgs('RJDBC')" \
       -e "install_pkgs('RJSONIO')" \
       -e "install_pkgs('RPostgreSQL')" \
@@ -158,7 +160,6 @@ RUN R -e "remotes::install_github('trestletech/plumber')" \
       -e "remotes::install_github('Rdatatable/data.table')" \
       # the gt needs sass but they are both not on CRAN yet
       -e "remotes::install_github('rstudio/sass')" \
-      -e "remotes::install_github('rstudio/gt')" \
-      -e "remotes::install_github('JohnCoene/echarts4r')" \
-      # there're some important patches in the dev version 
-      -e "remotes::install_github('r-dbi/odbc')"
+      -e "remotes::install_github('rstudio/gt')"
+      # -e "remotes::install_github('JohnCoene/echarts4r')" \
+      # -e "remotes::install_github('r-dbi/odbc')"
