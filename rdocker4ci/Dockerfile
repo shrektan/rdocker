@@ -4,50 +4,32 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's R docker image for CI
 
-RUN apt-get update -qq && apt-get -y --no-install-recommends -f install \
+RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   file \
   git \
   libapparmor1 \
+  libclang-dev \
   libcurl4-openssl-dev \
   libedit2 \
   libssl-dev \
   lsb-release \
+  multiarch-support \
   psmisc \
+  procps \
   python-setuptools \
   sudo \
   wget \
-  # The above lines are taken from rocker/rstudio
-  # TODO we need to install the pandoc
-  # I remember some database package needs libaio1
-  # libudunits2-dev is required by the units package
-  libudunits2-dev \
-  # rgeos
-  libgeos-dev \
-  # getPass
-  libsodium-dev \
-  # sf (the below 4 libs)
-  libudunits2-dev \
-  # needed by libgdal-dev
-  libmysqlclient-dev \
-  default-libmysqlclient-dev \
-  libgdal-dev \
-  libgeos-dev \
-  libproj-dev \
-  libaio1 \
+  # The above lines are taken from https://hub.docker.com/r/rocker/rstudio/dockerfile
   libxml2-dev \
   libcairo2-dev \
   libsqlite-dev \
-  libmariadb-dev \
   libmariadbd-dev \
   libmariadbclient-dev \
   libpq-dev \
   libssh2-1-dev \
   unixodbc-dev \
-  libsasl2-dev \
-  # in order to install rsvg from the source
-  librsvg2-dev
-
-# The above codes are from rocker/verse or rocker/tidyverse
+  libsasl2-dev
+  # The above lines are taken from https://hub.docker.com/r/rocker/tidyverse/dockerfile
 
 # We don't use litter here is because I don't want to install packages
 # that has already been installed.
