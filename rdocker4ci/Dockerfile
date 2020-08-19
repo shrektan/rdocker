@@ -37,6 +37,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
   libcairo2-dev \
   libsqlite-dev \
+  libmariadb-dev \
   libmariadbd-dev \
   libmariadbclient-dev \
   libpq-dev \
