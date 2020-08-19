@@ -27,6 +27,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libsodium-dev \
   # sf (the below 4 libs)
   libudunits2-dev \
+  # needed by libgdal-dev
+  default-libmysqlclient-dev \
   libgdal-dev \
   libgeos-dev \
   libproj-dev \
