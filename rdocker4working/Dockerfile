@@ -2,6 +2,11 @@ FROM rocker/verse:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
+# With the following two lines I can test the image building locally in China
+# https://blog.csdn.net/zmzwll1314/article/details/100557519
+# RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+# RUN  apt-get clean
+
 # Install Database related apt
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libaio1 \
