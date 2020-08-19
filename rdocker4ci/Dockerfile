@@ -33,12 +33,13 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libaio1 \
   libxml2-dev \
   libcairo2-dev \
-  libsqlite3-dev \
+  libsqlite-dev \
   libmariadbd-dev \
-  libmariadb-client-lgpl-dev \
+  libmariadbclient-dev \
   libpq-dev \
   libssh2-1-dev \
   unixodbc-dev \
+  libsasl2-dev \
   # in order to install rsvg from the source
   librsvg2-dev
 
