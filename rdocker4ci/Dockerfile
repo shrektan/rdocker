@@ -4,7 +4,7 @@ MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's R docker image for CI
 
-RUN apt-get update -qq && apt-get build-dep -y --no-install-recommends install \
+RUN apt-get update -qq && apt-get -y --no-install-recommends -f install \
   file \
   git \
   libapparmor1 \
