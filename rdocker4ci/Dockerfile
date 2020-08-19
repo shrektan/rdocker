@@ -28,6 +28,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   # sf (the below 4 libs)
   libudunits2-dev \
   # needed by libgdal-dev
+  libmysqlclient-dev \
   default-libmysqlclient-dev \
   libgdal-dev \
   libgeos-dev \
