@@ -92,6 +92,7 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('extrafont')" \
       -e "install_pkgs('flexdashboard')" \
       -e "install_pkgs('future')" \
+      -e "install_pkgs('gt')" \
       -e "install_pkgs('highcharter')" \
       -e "install_pkgs('htmlwidgets')" \
       -e "install_pkgs('keyring')" \
@@ -102,12 +103,14 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('pander')" \
       -e "install_pkgs('PKI')" \
       -e "install_pkgs('plotly')" \
+      -e "install_pkgs('plumber')" \
       -e "install_pkgs('promises')" \
       -e "install_pkgs('RcppRoll')" \
       -e "install_pkgs('Rglpk')" \
       -e "install_pkgs('RJDBC')" \
       -e "install_pkgs('RJSONIO')" \
       -e "install_pkgs('RPostgreSQL')" \
+      -e "install_pkgs('sass')" \
       -e "install_pkgs('shiny')" \
       -e "install_pkgs('shinycssloaders')" \
       -e "install_pkgs('shinydashboard')" \
@@ -118,7 +121,8 @@ RUN R -e "source('/usr/bin/install_pkgs.R')" \
       -e "install_pkgs('swagger')" \
       -e "install_pkgs('treemap')" \
       -e "install_pkgs('V8')" \
-      -e "install_pkgs('viridisLite')"
+      -e "install_pkgs('viridisLite')" \
+      -e "install_pkgs('webutils')"
 
 RUN tlmgr install ctex \
    # fullpage
@@ -151,15 +155,4 @@ RUN tlmgr install ctex \
 
 RUN tlmgr path add
 
-RUN R -e "remotes::install_github('trestletech/plumber')" \
-      # readxl prefers dev version tibble
-      -e "remotes::install_github('tidyverse/tibble')" \
-      # the new shiny version perfers dev httpuv due to the nginx set ups
-      -e "remotes::install_github('rstudio/httpuv')" \
-      # the dev data.table fix the issue of the UTF8 encoding
-      -e "remotes::install_github('Rdatatable/data.table')" \
-      # the gt needs sass but they are both not on CRAN yet
-      -e "remotes::install_github('rstudio/sass')" \
-      -e "remotes::install_github('rstudio/gt')"
-      # -e "remotes::install_github('JohnCoene/echarts4r')" \
-      # -e "remotes::install_github('r-dbi/odbc')"
+RUN R -e "remotes::install_github('trestletech/plumber')"

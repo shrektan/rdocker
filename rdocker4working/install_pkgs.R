@@ -32,7 +32,8 @@ if (FALSE) {
     "dygraphs", "d3heatmap", "DiagrammeR", "dtplyr",
     "leaflet", "extrafont", "mailR",
     "pander", "PKI", "RJSONIO", "showtext", "treemap", "viridisLite", "V8",
-    "keyring", 'future', 'promises', 'swagger', 'Rglpk', 'RcppRoll'
+    "keyring", 'future', 'promises', 'swagger', 'Rglpk', 'RcppRoll',
+    "plumber", "webutils", "sass", "gt"
   )
   gen_code(pkgs)
 }
