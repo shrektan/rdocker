@@ -165,4 +165,6 @@ RUN tlmgr install ctex \
 
 RUN tlmgr path add
 
-RUN R -e "remotes::install_github('trestletech/plumber')"
+RUN R -e "remotes::install_github('trestletech/plumber')" \
+# we need this patch https://github.com/tidyverse/glue/pull/192
+      -e "remotes::install_github('tidyverse/glue')"
