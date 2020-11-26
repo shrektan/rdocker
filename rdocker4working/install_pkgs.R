@@ -1,11 +1,13 @@
 install_pkgs <- function(pkgs, repos = 'https://cran.rstudio.com/') {
-  installed <- installed.packages()
-  pkgs <- pkgs[!pkgs %in% installed]
+  installed <- installed.packages(noCache = FALSE)
+  pkgs <- pkgs[!pkgs %in% rownames(installed)]
   if (length(pkgs)) {
-    message('installing pkgs: ', paste0(pkgs, collapse = ', '))
+    message('installing pkgs: ', toString(pkgs))
     install.packages(pkgs, repos = repos, quiet = TRUE)
   } else {
-    message('no new pkgs need to be installed.')
+    message(sprintf(
+      'pkgs %s have been installed already', toString(pkgs)
+    ))
   }
 }
 
