@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY tds.driver.template /var/tds.driver.template
 RUN odbcinst -i -d -f /var/tds.driver.template
 
+# install2.r -s so that escape the installed packages
+
 RUN install2.r -s -r "https://mirrors.e-ducation.cn/CRAN/" \
     assertthat \
     blogdown \
@@ -125,6 +127,7 @@ RUN install2.r -s -r "https://mirrors.e-ducation.cn/CRAN/" \
     xtable \
     xts \
     yaml
+
 RUN tlmgr install ctex \
    # fullpage
    preprint \

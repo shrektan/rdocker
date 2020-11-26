@@ -3,6 +3,12 @@ FROM rocker/verse:latest
 MAINTAINER Shrek Tan "shrektan@126.com"
 
 # Shrek's R docker image for CI
+
+# With the following two lines I can test the image building locally in China
+# https://blog.csdn.net/zmzwll1314/article/details/100557519
+# RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+# RUN  apt-get clean
+
 # install2.r -s so that escape the installed packages
 
 RUN install2.r -s -r "https://mirrors.e-ducation.cn/CRAN/" \
