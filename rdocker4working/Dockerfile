@@ -27,8 +27,8 @@ RUN odbcinst -i -d -f /var/tds.driver.template
 
 # install2.r -se so that escape the installed packages, error if fails
 RUN if [ ${in_china:-0} = 1 ]; \
-    then export cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
-    else export cran_repo="https://cran.rstudio.com/"; fi && \
+    then cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
+    else cran_repo="https://cran.rstudio.com/"; fi && \
     install2.r -se -r ${cran_repo} -n ${ncpus:-1} \
     assertthat \
     blogdown \
