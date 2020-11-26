@@ -15,7 +15,8 @@ There're two building arguments that are useful:
 The recommended building command for users to test in China:
 
 ```bash
-docker build <folder> -t <image name> --build-arg in_china=1 --build-arg ncpus=4
+image=rdocker4ci
+docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build-arg ncpus=8
 ```
 
 ## TODO
