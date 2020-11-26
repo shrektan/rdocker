@@ -20,7 +20,7 @@ RUN if [ ${in_china:-0} = 1 ]; \
 RUN if [ ${in_china:-0} = 1 ]; \
     then export cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
     else export cran_repo="http://cran.rstudio.com/"; fi && \
-    install2.r -s -r -e -d ${cran_repo} -n ${ncpus:-1} \
+    install2.r -s -e -d -r ${cran_repo} -n ${ncpus:-1} \
     assertthat \
     checkmate \
     commonmark \
