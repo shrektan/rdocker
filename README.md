@@ -1,9 +1,9 @@
 # rdocker
 
-The R docker that I use. The plan is to have three different images:
+The R docker images that I use:
 
 - rdocker4ci: for continous integration, containing the core packages
-- rdocker4working: for production and with some additional packages like ROracle, RSQLServer, etc.
+- rdocker4working: for production with more packages like database (ROracle, odbc).
 
 ## For Local Testing
 
@@ -21,12 +21,9 @@ docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build
 
 ## TODO
 
-- [x] Build the image from rocker/r-ver directly. I don't think I need the RStudio bundle in the docker image and I need a smaller image for CI.
-- [x] Fix the pandoc installing issue.I bet I will encounter issues in the end because pandoc will not be installed if the image built from rocker/r-ver instead of rocker/rstudio
-- [x] Add the rdocker4shiny
-- [x] Add the mssqlserver odbc driver and ensure it works
-- [x] Add more latex packages especially those relate to CTEX.
+- [ ] Add some CI tests - I need to ensure the LaTaX engine works, sometimes it fails...
 - [ ] Add the oracle db driver
+- [ ] The odbc driver currently can't use the identifier, needs to be enabled...
 
 ## STATUS
 
