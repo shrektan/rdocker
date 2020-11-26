@@ -1,4 +1,4 @@
-FROM rocker/verse:latest
+FROM rocker/verse:4.0.3
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
