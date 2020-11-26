@@ -4,7 +4,6 @@ The R docker that I use. The plan is to have three different images:
 
 - rdocker4ci: for continous integration, containing the core packages
 - rdocker4working: for working and with some additional packages like ROracle, RSQLServer, etc.
-- rdocker4server: for shiny server deploying with shiny-server built-in.
 
 ## TODO
 
