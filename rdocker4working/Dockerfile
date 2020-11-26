@@ -2,10 +2,17 @@ FROM shrektan/rdocker4ci:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
+# if use multiple CPUs to install packages, default is 1
+ARG ncpus
+# use different mirrors if in China
+ARG in_china
+
 # With the following two lines I can test the image building locally in China
 # https://blog.csdn.net/zmzwll1314/article/details/100557519
-# RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-# RUN  apt-get clean
+RUN if [ ${in_china:-0} = 1 ]; \
+    then sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && \
+         apt-get clean; \
+    fi
 
 # Install Database related apt
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -15,13 +22,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tdsodbc
 
 # register Free TDS driver
-
 COPY tds.driver.template /var/tds.driver.template
 RUN odbcinst -i -d -f /var/tds.driver.template
 
 # install2.r -s so that escape the installed packages
-
-RUN install2.r -s -r "https://mirrors.e-ducation.cn/CRAN/" \
+RUN if [ ${in_china:-0} = 1 ]; \
+    then export cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
+    else export cran_repo="http://cran.rstudio.com/"; fi && \
+    install2.r -s -r -e -d ${cran_repo} -n ${ncpus:-1} \
     assertthat \
     blogdown \
     bookdown \
