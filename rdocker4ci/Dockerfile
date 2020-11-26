@@ -16,11 +16,11 @@ RUN if [ ${in_china:-0} = 1 ]; \
          apt-get clean; \
     fi
 
-# install2.r -s so that escape the installed packages
+# install2.r -se so that escape the installed packages, error if fails
 RUN if [ ${in_china:-0} = 1 ]; \
     then export cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
-    else export cran_repo="http://cran.rstudio.com/"; fi && \
-    install2.r -s -e -d -r ${cran_repo} -n ${ncpus:-1} \
+    else export cran_repo="https://cran.rstudio.com/"; fi && \
+    install2.r -se -r ${cran_repo} -n ${ncpus:-1} \
     assertthat \
     checkmate \
     commonmark \
