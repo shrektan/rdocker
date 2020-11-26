@@ -40,7 +40,6 @@ RUN if [ ${in_china:-0} = 1 ]; \
     config \
     corrplot \
     covr \
-    d3heatmap \
     data.table \
     data.tree \
     DBI \
