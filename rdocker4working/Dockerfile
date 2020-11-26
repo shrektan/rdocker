@@ -136,6 +136,10 @@ RUN if [ ${in_china:-0} = 1 ]; \
     xts \
     yaml
 
+RUN if [ ${in_china:-0} = 1 ]; then \
+    tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet; \
+    fi
+
 RUN tlmgr install ctex \
    # fullpage
    preprint \
