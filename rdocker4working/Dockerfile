@@ -166,6 +166,9 @@ RUN tlmgr install ctex \
    trimspaces \
    zhnumber \
    fandol \
-   symbol
-
+   symbol \
+   framed \
+   pdflscape \
+   unicode-math \
+   fancyvrb
 RUN tlmgr path add
