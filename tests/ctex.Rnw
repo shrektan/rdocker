@@ -1,0 +1,59 @@
+\documentclass[a4paper, fancyhdr,cap]{ctexart}
+\usepackage[myheadings]{fullpage}
+\usepackage{cmap}
+\usepackage{colortbl}
+\usepackage{color}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{pdfpages}
+\usepackage{array}
+\usepackage[norule]{footmisc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[pdfstartview=FitH, bookmarks=true, pdfpagelayout = OneColumn, bookmarksopen = true, bookmarksnumbered = false, CJKbookmarks=true, colorlinks=true]{hyperref}
+\usepackage{pdflscape}
+\renewcommand*\rmdefault{ppl}
+\CTEXsetup[
+number={\chinese{part}},
+format={\zihao{3} \kaishu \centering}]{part}
+\CTEXsetup[
+number={\chinese{section}},
+format={\zihao{3}\kaishu\raggedright},
+beforeskip={10pt},afterskip={10pt}]{section}
+\CTEXsetup[
+number={\arabic{subsection}},
+format={\zihao{4}\kaishu},
+beforeskip={15pt},afterskip={5pt}]{subsection}
+\CTEXsetup[
+number={\arabic{subsection}.\arabic{subsubsection}},
+format={\zihao{5}\kaishu},
+beforeskip={15pt},afterskip={5pt}]{subsubsection}
+
+\renewcommand{\footnotesize}{\fontsize{11}{13}\kaishu}
+
+\definecolor{lightgreen}{rgb}{0.56, 0.93, 0.56}
+\addtolength{\voffset}{-0.6in}
+\addtolength{\textheight}{0.9in}
+% \addtolength{\marginparwidth}{-0.5in}
+\renewcommand{\headheight}{0.5in}
+\renewcommand{\headrulewidth}{1.0pt}
+\renewcommand{\footrulewidth}{1.0pt}
+\renewcommand{\headsep}{20pt}
+\setlength{\headwidth}{\textwidth}
+\fancyhead[L]{
+\parbox{0.49\textwidth}{
+\fontsize{12}{16} \kaishu test title}}
+
+\fancyfoot[LF]{\kaishu 敬请参阅报告结尾处免责声明}
+\cfoot{}
+\rfoot{-\thepage-}
+\pagestyle{fancy}
+\renewcommand*{\familydefault}{\sfdefault} % set the default font to arial-like, instead of time new rome like.
+\begin{document}
+\kaishu
+\zihao{5}
+\definecolor{light-gray}{gray}{0.95}
+
+\section{固定收益部分}
+中文
+\end{document}
