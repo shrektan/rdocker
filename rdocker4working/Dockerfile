@@ -1,4 +1,4 @@
-FROM rocker/verse:latest
+FROM shrektan/rdocker4ci:latest
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
