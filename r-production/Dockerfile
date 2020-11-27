@@ -1,4 +1,4 @@
-FROM shrektan/rdocker4ci:latest
+FROM rocker/verse:4.0.3
 
 MAINTAINER Shrek Tan "shrektan@126.com"
 
@@ -47,8 +47,8 @@ RUN if [ ${in_china:-0} = 1 ]; \
     DiagrammeR \
     dplyr \
     drat \
-    dtplyr \
     DT \
+    dtplyr \
     dygraphs \
     echarts4r \
     extrafont \
