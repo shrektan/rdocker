@@ -31,6 +31,7 @@ RUN if [ ${in_china:-0} = 1 ]; \
     else cran_repo="https://cran.rstudio.com/"; fi && \
     install2.r -se -r ${cran_repo} -n ${ncpus:-1} \
     assertthat \
+    blastula \
     blogdown \
     bookdown \
     bsplus \
@@ -49,7 +50,6 @@ RUN if [ ${in_china:-0} = 1 ]; \
     drat \
     DT \
     dtplyr \
-    dygraphs \
     echarts4r \
     extrafont \
     feather \
@@ -97,7 +97,6 @@ RUN if [ ${in_china:-0} = 1 ]; \
     readr \
     readxl \
     Rglpk \
-    RJDBC \
     RJSONIO \
     rlang \
     rmdshower \
