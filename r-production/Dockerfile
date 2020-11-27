@@ -134,40 +134,40 @@ RUN if [ ${in_china:-0} = 1 ]; \
     xts \
     yaml
 
-RUN if [ ${in_china:-0} = 1 ]; then \
+RUN set -o pipefail && \
+    if [ ${in_china:-0} = 1 ]; then \
     tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet; \
-    fi
-
-RUN tlmgr install ctex \
-   # fullpage
-   preprint \
-   cmap \
-   colortbl \
-   # color
-   graphics \
-   booktabs \
-   pdfpages \
-   # array longtable multicol
-   tools \
-   footmisc \
-   xcolor \
-   hyperref \
-   # pdflscape
-   oberdiek \
-   # pifont
-   psnfss \
-   # the following I don't know... but they are required...
-   ms \
-   fancyhdr \
-   xecjk \
-   ulem \
-   environ \
-   trimspaces \
-   zhnumber \
-   fandol \
-   symbol \
-   framed \
-   pdflscape \
-   unicode-math \
-   fancyvrb
-RUN tlmgr path add
+    fi && \
+    tlmgr install ctex \
+    # fullpage
+    preprint \
+    cmap \
+    colortbl \
+    # color
+    graphics \
+    booktabs \
+    pdfpages \
+    # array longtable multicol
+    tools \
+    footmisc \
+    xcolor \
+    hyperref \
+    # pdflscape
+    oberdiek \
+    # pifont
+    psnfss \
+    # the following I don't know... but they are required...
+    ms \
+    fancyhdr \
+    xecjk \
+    ulem \
+    environ \
+    trimspaces \
+    zhnumber \
+    fandol \
+    symbol \
+    framed \
+    pdflscape \
+    unicode-math \
+    fancyvrb && \
+    tlmgr path add
