@@ -24,10 +24,11 @@ docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build
 - [x] Add some tests - I need to ensure the LaTaX engine works, sometimes it fails due to missing texlive packags ...
     - Despite they can only be run manually...
 - [ ] rm rdocker4ci as I'm too lazy to reduce the image size and now it's useless to me
-- [ ] rename rdocker4working to rdocker-prod
-- [ ] add a new image rocker-rstudio which is based on rdocker-prod but with rstudio server community version installed
+- [ ] rename rdocker4working to r-production
+- [ ] add a new image r-rstudio which is based on rdocker-prod but with rstudio server community version installed
 - [ ] Add the oracle db driver
 - [ ] The odbc driver currently can't use the identifier, needs to be enabled...
+- [ ] Fix the issue that mailR fails to send email (miss org.apache.commons.mail.HtmlEmail)
 
 ## STATUS
 
