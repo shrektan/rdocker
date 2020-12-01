@@ -1,6 +1,6 @@
 FROM rocker/verse:4.0.3
 
-MAINTAINER Shrek Tan "shrektan@126.com"
+LABEL maintainer="Shrek Tan <shrektan@126.com>"
 
 # Shrek's R docker image for CI
 
