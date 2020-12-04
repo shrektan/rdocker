@@ -75,7 +75,6 @@ RUN if [ ${in_china:-0} = 1 ]; \
     knitr \
     leaflet \
     lubridate \
-    mailR \
     odbc \
     openxlsx \
     pander \
