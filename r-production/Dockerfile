@@ -1,6 +1,6 @@
 FROM rocker/verse:4.0.3
 
-MAINTAINER Shrek Tan "shrektan@126.com"
+LABEL maintainer="Shrek Tan <shrektan@126.com>"
 
 # if use multiple CPUs to install packages, default is 1
 ARG ncpus
