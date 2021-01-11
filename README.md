@@ -20,7 +20,7 @@ docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build
 
 ## TODO
 
-- [ ] Add the oracle db driver so that I don't need to install it mannually afterwards
+- [ ] Add the oracle db driver so that I don't need to install it manually afterwards
 - [ ] The odbc driver currently can't use the identifier, needs to be enabled.
 - [ ] Find a workflow to use the container based VSCode
 
