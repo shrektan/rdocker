@@ -19,7 +19,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libaio1 \
     unixodbc \
     unixodbc-dev \
-    tdsodbc
+    tdsodbc \
+    # so that we can connect to the container via SSH
+    openssh-server \
+    # we'd better install the binary version of RQuantLib as it's difficult to build from source
+    r-cran-rquantlib quantlib-examples libquantlib0-dev
+
 
 # register Free TDS driver
 COPY tds.driver.template /var/tds.driver.template
@@ -133,8 +138,7 @@ RUN if [ ${in_china:-0} = 1 ]; \
     xts \
     yaml
 
-RUN set -o pipefail && \
-    if [ ${in_china:-0} = 1 ]; then \
+RUN if [ ${in_china:-0} = 1 ]; then \
     tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet; \
     fi && \
     tlmgr install ctex \
