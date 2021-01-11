@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # so that we can connect to the container via SSH
     openssh-server \
     # install QuantLib so that we can build RQuantLib
-    libquantlib0 quantlib-examples libquantlib0-dev
+    libquantlib0v5 quantlib-examples libquantlib0-dev
 
 
 # register Free TDS driver
