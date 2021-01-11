@@ -92,6 +92,7 @@ RUN if [ ${in_china:-0} = 1 ]; \
     progress \
     promises \
     purrr \
+    qs \
     R6 \
     RColorBrewer \
     Rcpp \
