@@ -10,12 +10,13 @@ There're two building arguments that are useful:
 
 1. `in_china`: By default is 0. If set to 1, it will use the domestic mirrors thus significantly boost the building speed.
 1. `ncpus`: By default is 1, the number of cores that are used to build the packages.
+2. `npkgs`: By default is 1, the number of R packages installed at one time. There're many R packages need to be installed. Sometimes error happens and it's difficult to track back. In addition, we may need to pass special building arguments for certain packages. So our solution is to define the packages in the yaml file and install the packages in several times. Moreover, we check if the packages are installed successfully and would throw clear error message if some failed.
 
 The recommended building command for users to test in China:
 
 ```bash
 image=r-production
-docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build-arg ncpus=8
+docker build ${image} -t shrektan/${image}:latest --build-arg in_china=1 --build-arg ncpus=5 --build-arg npkgs=5
 ```
 
 ## TODO

@@ -6,6 +6,8 @@ LABEL maintainer="Shrek Tan <shrektan@126.com>"
 ARG ncpus
 # use different mirrors if in China
 ARG in_china
+# how many packages are installed for one time
+ARG npkgs
 
 # With the following two lines I can test the image building locally in China
 # https://blog.csdn.net/zmzwll1314/article/details/100557519
@@ -30,115 +32,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY tds.driver.template /var/tds.driver.template
 RUN odbcinst -i -d -f /var/tds.driver.template
 
-# install2.r -se so that escape the installed packages, error if fails
+COPY install-r-pkgs.R /root/install-rpkg/install-r-pkgs.R
+COPY r-pkgs.yml /root/install-rpkg/r-pkgs.yml
+WORKDIR /root/install-rpkg
+
+
 RUN if [ ${in_china:-0} = 1 ]; \
-    then cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
-    else cran_repo="https://cran.rstudio.com/"; fi && \
-    install2.r -se -r ${cran_repo} -n ${ncpus:-1} \
-    assertthat \
-    blastula \
-    blogdown \
-    bookdown \
-    bsplus \
-    checkmate \
-    collapsibleTree \
-    commonmark \
-    config \
-    corrplot \
-    covr \
-    data.table \
-    data.tree \
-    DBI \
-    debugme \
-    DiagrammeR \
-    dplyr \
-    drat \
-    DT \
-    dtplyr \
-    echarts4r \
-    extrafont \
-    feather \
-    flexdashboard \
-    forcats \
-    forecast \
-    formatR \
-    fs \
-    fst \
-    future \
-    ggplot2 \
-    ggpubr \
-    ggrepel \
-    ggthemes \
-    glue \
-    gt \
-    highcharter \
-    htmlwidgets \
-    httr \
-    huxtable \
-    jsonlite \
-    keyring \
-    knitr \
-    leaflet \
-    lubridate \
-    odbc \
-    openxlsx \
-    pander \
-    PerformanceAnalytics \
-    pkgconfig \
-    PKI \
-    plotly \
-    plumber \
-    pool \
-    progress \
-    promises \
-    purrr \
-    qs \
-    R6 \
-    RColorBrewer \
-    Rcpp \
-    RcppArmadillo \
-    RcppParallel \
-    RcppRoll \
-    RQuantLib \
-    readr \
-    readxl \
-    Rglpk \
-    RJSONIO \
-    rlang \
-    rmdshower \
-    roll \
-    RPostgreSQL \
-    RSQLite \
-    rsvg \
-    rticles \
-    rvest \
-    sass \
-    shiny \
-    shinycssloaders \
-    shinydashboard \
-    shinyjs \
-    shinythemes \
-    shinyWidgets \
-    showtext \
-    stringr \
-    svglite \
-    swagger \
-    testthat \
-    tibble \
-    tidyverse \
-    treemap \
-    urltools \
-    usethis \
-    V8 \
-    viridisLite \
-    webutils \
-    whoami \
-    withr \
-    writexl \
-    xml2 \
-    xtable \
-    xts \
-    yaml
+    then export cran_repo="https://mirrors.e-ducation.cn/CRAN/"; \
+    else export cran_repo="https://cran.rstudio.com/"; fi && \
+    export npkgs=${npkgs:-1} && \
+    export ncpus=${ncpus:-1} && \
+    R -e "source('install-r-pkgs.R')" && \
+    rm -r -f /root/install-rpkg
+
+WORKDIR /root
 
 RUN if [ ${in_china:-0} = 1 ]; then \
     tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet; \
