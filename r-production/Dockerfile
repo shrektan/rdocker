@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tdsodbc \
     # so that we can connect to the container via SSH
     openssh-server \
-    # we'd better install the binary version of RQuantLib as it's difficult to build from source
-    r-cran-rquantlib quantlib-examples libquantlib0-dev
+    # install QuantLib so that we can build RQuantLib
+    libquantlib0 quantlib-examples libquantlib0-dev
 
 
 # register Free TDS driver
@@ -99,6 +99,7 @@ RUN if [ ${in_china:-0} = 1 ]; \
     RcppArmadillo \
     RcppParallel \
     RcppRoll \
+    RQuantLib \
     readr \
     readxl \
     Rglpk \
