@@ -29,6 +29,7 @@ fs:
 fst:
 future:
 ggplot2:
+ggpubr: # despite I don't use it any longer, keep it here for historical reasons
 ggrepel:
 ggthemes:
 glue:
