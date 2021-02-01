@@ -16,21 +16,22 @@ RUN if [ ${in_china:-0} = 1 ]; \
          apt-get clean; \
     fi
 
-# Install Database related apt
+# required for msodbcsql17
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    gnupg gnupg2 gnupg1 \
+    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+# Install Database related apt
+RUN apt-get update && ACCEPT_EULA=Y apt-get install -y --no-install-recommends \
     libaio1 \
     unixodbc \
     unixodbc-dev \
-    tdsodbc \
+    msodbcsql17 \
     # so that we can connect to the container via SSH
     openssh-server \
     # install QuantLib so that we can build RQuantLib
     libquantlib0v5 quantlib-examples libquantlib0-dev
-
-
-# register Free TDS driver
-COPY tds.driver.template /var/tds.driver.template
-RUN odbcinst -i -d -f /var/tds.driver.template
 
 COPY install-r-pkgs.R /root/install-rpkg/install-r-pkgs.R
 COPY r-pkgs.yml /root/install-rpkg/r-pkgs.yml
