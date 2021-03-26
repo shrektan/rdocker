@@ -77,10 +77,12 @@ rsvg:
 rticles:
 rvest:
 sass:
+semantic.dashboard:
 shiny:
 shinycssloaders:
 shinydashboard:
 shinyjs:
+shiny.semantic:
 shinythemes:
 shinyWidgets:
 showtext:
