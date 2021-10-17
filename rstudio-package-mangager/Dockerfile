@@ -1,6 +1,6 @@
-ARG R_VERSION=3.6.2
+ARG R_VERSION=4.1.1
 FROM rstudio/r-base:${R_VERSION}-bionic
-LABEL maintainer="RStudio Docker <docker@rstudio.com>"
+LABEL maintainer="Xianying Tan <shrektan@126.com>"
 
 # Locale configuration --------------------------------------------------------#
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
