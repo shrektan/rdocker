@@ -1,4 +1,4 @@
-ARG R_VERSION=4.1.1
+ARG R_VERSION=4.1.0
 FROM rstudio/r-base:${R_VERSION}-bionic
 LABEL maintainer="Xianying Tan <shrektan@126.com>"
 

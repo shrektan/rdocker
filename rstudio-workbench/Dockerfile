@@ -1,4 +1,4 @@
-ARG R_VERSION=3.6
+ARG R_VERSION=4.1.0
 FROM rstudio/r-base:${R_VERSION}-bionic
 LABEL maintainer="RStudio Docker <docker@rstudio.com>"
 
@@ -35,7 +35,7 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
 
 # Add another R version -------------------------------------------------------#
 
-ARG R_VERSION_ALT=4.1.0
+ARG R_VERSION_ALT=3.6.3
 RUN apt-get update -qq && \
     curl -O https://cdn.rstudio.com/r/ubuntu-1804/pkgs/r-${R_VERSION_ALT}_1_amd64.deb && \
     DEBIAN_FRONTEND=noninteractive gdebi --non-interactive r-${R_VERSION_ALT}_1_amd64.deb && \

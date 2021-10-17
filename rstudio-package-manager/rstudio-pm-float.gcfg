@@ -8,7 +8,7 @@ Listen = :4242
 DataDir = /data
 
 [Server]
-RVersion = /opt/R/3.6.2/
+RVersion = /opt/R/4.1.0/
 
 [Git]
 BuilderDir = "/tmp/git"
