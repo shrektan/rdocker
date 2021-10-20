@@ -9,13 +9,13 @@ install_pkg <- function(x, ncpus, repos) {
   x_normal <- Filter(is.null, x)
   # install normal pkgs first
   message("Installing ", toString(names(x_normal)))
-  install.packages(names(x_normal), repos = repos, Ncpus = ncpus, type = "source")
+  install.packages(names(x_normal), repos = repos, Ncpus = ncpus)
   # install speical pkgs one by one
   for (i in seq_along(x_special)) {
     pkg <- names(x_special)[i]
     param <- x_special[[i]]
     message("Installing ", pkg)
-    args <- list(pkgs = pkg, repos = repos, Ncpus = ncpus, type = "source")
+    args <- list(pkgs = pkg, repos = repos, Ncpus = ncpus)
     args <- c(args, param)
     do.call(utils::install.packages, args)
   }
