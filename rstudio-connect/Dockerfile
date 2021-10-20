@@ -1,5 +1,5 @@
-ARG R_VERSION=4.1.0
-FROM rstudio/r-base:${R_VERSION}-bionic
+ARG R_VERSION=4.1.1
+FROM shrektan/r-production:${R_VERSION}
 LABEL maintainer="Xianying Tan <shrektan@126.com>"
 
 # Locale configuration --------------------------------------------------------#
@@ -8,13 +8,6 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
-
-# With the following two lines I can test the image building locally in China
-# https://blog.csdn.net/zmzwll1314/article/details/100557519
-RUN if [ ${in_china:-0} = 1 ]; \
-    then sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && \
-         apt-get clean; \
-    fi
 
 # hadolint ignore=DL3008,DL3009
 RUN apt-get update --fix-missing \
@@ -27,7 +20,7 @@ RUN apt-get update --fix-missing \
         libsm6 \
         libxrender1 \
         gdebi-core \
-        libssl1.0.0 \
+        libssl1.1 \
         libssl-dev git \
 	sudo \
     && apt-get clean \
@@ -37,7 +30,7 @@ RUN apt-get update --fix-missing \
 
 ARG R_VERSION_ALT=3.6.3
 RUN apt-get update -qq && \
-    curl -O https://cdn.rstudio.com/r/ubuntu-1804/pkgs/r-${R_VERSION_ALT}_1_amd64.deb && \
+    curl -O https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-${R_VERSION_ALT}_1_amd64.deb && \
     DEBIAN_FRONTEND=noninteractive gdebi --non-interactive r-${R_VERSION_ALT}_1_amd64.deb && \
     rm -f ./r-${R_VERSION_ALT}_1_amd64.deb \
     && apt-get clean \
@@ -75,7 +68,7 @@ ARG RSC_VERSION=2021.09.0
 SHELL [ "/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update --fix-missing \
     && RSC_VERSION_URL=`echo -n "${RSC_VERSION}" | sed 's/+/%2B/g'` \
-    && curl -L -o rstudio-connect.deb https://cdn.rstudio.com/connect/$(echo $RSC_VERSION | sed -r 's/([0-9]+\.[0-9]+).*/\1/')/rstudio-connect_${RSC_VERSION_URL}~ubuntu18_amd64.deb \
+    && curl -L -o rstudio-connect.deb https://cdn.rstudio.com/connect/$(echo $RSC_VERSION | sed -r 's/([0-9]+\.[0-9]+).*/\1/')/rstudio-connect_${RSC_VERSION_URL}~ubuntu20_amd64.deb \
     && gdebi -n rstudio-connect.deb \
     && rm -rf rstudio-connect.deb \
     && apt-get clean \
