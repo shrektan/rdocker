@@ -33,14 +33,17 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y --no-install-recommends \
     # so that we can connect to the container via SSH
     # openssh-server \
     # install QuantLib so that we can build RQuantLib
-    libquantlib0v5 quantlib-examples libquantlib0-dev
+    libquantlib0v5 quantlib-examples libquantlib0-dev \
+    sudo \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY install-r-pkgs.R /root/install-rpkg/install-r-pkgs.R
 COPY r-pkgs.yml /root/install-rpkg/r-pkgs.yml
 WORKDIR /root/install-rpkg
 
 # so that we can install binary R packages directly
-RUN export cran_repo="https://packagemanager.rstudio.com/cran/__linux__/bionic/latest" && \
+RUN export cran_repo="https://packagemanager.rstudio.com/cran/__linux__/focal/latest" && \
     export npkgs=${npkgs:-1} && \
     export ncpus=${ncpus:-1} && \
     R -e "source('install-r-pkgs.R')" && \
