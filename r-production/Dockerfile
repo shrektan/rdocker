@@ -1,4 +1,4 @@
-FROM rocker/verse:4.1.0
+FROM rocker/verse:4.1.1
 
 LABEL maintainer="Shrek Tan <shrektan@126.com>"
 
@@ -18,13 +18,13 @@ RUN if [ ${in_china:-0} = 1 ]; \
     fi
 
 # required for msodbcsql17
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --fix-missing --no-install-recommends \
     gnupg gnupg2 gnupg1 \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
 # Install Database related apt; better install systemd to control services
-RUN apt-get update && ACCEPT_EULA=Y apt-get install -y --no-install-recommends \
+RUN apt-get update && ACCEPT_EULA=Y apt-get install -y --fix-missing --no-install-recommends \
     systemd \
     libaio1 \
     unixodbc \
