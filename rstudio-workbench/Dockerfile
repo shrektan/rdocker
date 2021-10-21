@@ -1,5 +1,5 @@
-ARG R_VERSION=4.1.0
-FROM rstudio/r-base:${R_VERSION}-bionic
+ARG R_VERSION=4.1.1
+FROM shrektan/r-production:${R_VERSION}
 LABEL maintainer="Xianying Tan <shrektan@126.com>"
 
 # Locale configuration --------------------------------------------------------#
@@ -8,13 +8,6 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
-
-# With the following two lines I can test the image building locally in China
-# https://blog.csdn.net/zmzwll1314/article/details/100557519
-RUN if [ ${in_china:-0} = 1 ]; \
-    then sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && \
-         apt-get clean; \
-    fi
 
 # hadolint ignore=DL3008,DL3009
 RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
@@ -26,7 +19,7 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
         libglib2.0-0 \
         libpq5 \
         libsm6 \
-        libssl1.0.0 \
+        libssl1.1 \
         openssl \
         libssl-dev \
         libuser \
@@ -44,7 +37,7 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
 
 ARG R_VERSION_ALT=3.6.3
 RUN apt-get update -qq && \
-    curl -O https://cdn.rstudio.com/r/ubuntu-1804/pkgs/r-${R_VERSION_ALT}_1_amd64.deb && \
+    curl -O https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-${R_VERSION_ALT}_1_amd64.deb && \
     DEBIAN_FRONTEND=noninteractive gdebi --non-interactive r-${R_VERSION_ALT}_1_amd64.deb && \
     rm -f ./r-${R_VERSION_ALT}_1_amd64.deb \
     && apt-get clean \
@@ -125,7 +118,7 @@ COPY startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /usr/local/bin/startup.sh
 
 # Install RStudio Server Pro --------------------------------------------------#
-ARG RSP_VERSION=1.4.1717-3
+ARG RSP_VERSION=2021.09.0-351.pro6
 ARG RSP_DOWNLOAD_URL=https://download2.rstudio.org/server/bionic/amd64
 ARG RSP_NAME=rstudio-workbench
 RUN apt-get update --fix-missing \
